@@ -31,6 +31,7 @@ while True:
                     a=int(input("Enter first number:"))
                     b=int(input("Enter second number:"))
                     print("Subtraction of %d and %d is: %d"%(a,b,a-b))
+                    break
                 except:
                     print("Please enter an integer number!!")
 
