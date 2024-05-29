@@ -3,6 +3,66 @@ Prompt the user to input two numbers and an operation choice.
 Perform the calculation and display the result.'''
 
 import math
+def calculator():
+    while True:
+        print("1.Additon\n2.Subtraction\n3.Multiplicatiion\n4.Division\n5.Raise_power\n6.Factorial\n7.Exit")
+        try:
+            user_input=int(input("Select required option:")) 
+            if user_input==7:
+                print("Thank You for using!!")
+                break
+            if user_input<1 or user_input>7:
+                print("Input out of range!!..Input should be (1-7)")
+                continue
+        except:
+            print("Invalid input!!..")
+            continue
+
+        try:
+            if user_input==6:
+                a=int(input("Enter a integer number"))
+                if a<0:
+                    print("Negative number not allow for calculatig factorial!!")
+                    continue
+                print("Factorial of %d is"%(a),math.factorial(a))
+        except:
+            print("Invalid input!!.. input should be integer number.")
+            continue
+
+        if user_input in {1,2,3,4,5}:
+            try:
+                a=int(input("Enter first number:"))
+                b=int(input("Enter second number:"))
+            except:
+                print("Both value must be integer!!")
+                continue    
+
+        match user_input:
+            case 1:
+                print("Addition of %d and %d is %d"%(a,b,a+b))
+            case 2:
+                print("Subtraction of %d and %d is %d"%(a,b,a-b)) 
+            case 3:
+                print("Multiplication of %d and %d is %d"%(a,b,a*b))
+            case 4:
+                try:
+                   print("Subtraction of %d and %d is"%(a,b),a/b)
+                except:
+                     print("ZeroDivisionError!! Denominator can not be Zero")
+            case 5:
+                print("%d 's power %d == %d"%(a,b,a**b))  
+calculator()                                             
+
+
+
+
+
+
+
+
+
+'''
+import math
 while True:
     print("1.Additon\n2.Subtraction\n3.Multiplicatiion\n4.Division\n5.Raise_power\n6.Factorial\n7.Exit")
     try:        
@@ -78,6 +138,7 @@ while True:
         case 7:
             print("Thanks your using!!")
             break
+            '''
                           
 
 
