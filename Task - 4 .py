@@ -14,66 +14,90 @@ feedback."""
 
 
 import random
-user_score=0
+choices=["rock","paper","scissor"]
 computer_score=0
+user_score=0
 round=1
-while True:
-    choices=["rock","paper","scissor"]
-
-    for i in choices[::]:
-        print(i,end=",")
-
-    user_choice=input("\nchoice any one option:").strip().lower()
+def user_typed():
+    for i in choices:
+        print(i,end=" ")
+    while True:    
+        try:
+            user_input=input("\nSelect your choice:").strip().lower()
+            if user_input in choices:
+               print("\nUser's choice=",user_input)
+               return user_input 
+            
+            elif user_input not in choices:
+                print("Invalid Syntax!!\nRetry!!")
+                continue
+        except:
+            print("Invalid Input!!.. Input should be 'rock', 'paper' or 'scissor'")
+            continue
+        
+    
+def performe():
+    global computer_score,user_score,round
+    user_choice=user_typed()
     computer_choice=random.choice(choices)
-
-    if user_choice not in choices:
-        print("invalid syntax\nRetry again!!")
-        pass
-
-    else: 
-        print("User choice:",user_choice,"Computer choice:",computer_choice,sep="\n")
+    print("Computer choice=",computer_choice)
+    
+    print("\nUser choice:",user_choice,"\nComputer choice:",computer_choice)
        
-        if user_choice=="rock" and computer_choice=="paper":
-            print("Computer Win!!")
-            print("Paper beats rock")
-            computer_score=computer_score+1
+    if user_choice=="rock" and computer_choice=="paper":
+        print("User lose!!")
+        print("Paper beats rock")
+        computer_score+=1
 
-        elif user_choice=="rock" and computer_choice=="scissor":
-            print("User Win!!")
-            print("rock beats scissor")
-            user_score=user_score+1
+    elif user_choice=="rock" and computer_choice=="scissor":
+        print("User Win!!")
+        print("rock beats scissor")
+        user_score+=1
 
-        elif user_choice=="paper" and computer_choice=="rock":
-            print("User Win!!")
-            print("paper beats rock")
-            user_score=user_score+1 
+    elif user_choice=="paper" and computer_choice=="rock":
+        print("User Win!!")
+        print("paper beats rock")
+        user_score+=1 
 
-        elif user_choice=="paper" and computer_choice=="scissor":
-            print("Computer Win!!")
-            print("scissor beats paper")
-            computer_score=computer_score+1 
+    elif user_choice=="paper" and computer_choice=="scissor":
+        print("User lose!!")
+        print("scissor beats paper")
+        computer_score+=1 
 
-        elif user_choice=="scissor" and computer_choice=="rock":
-            print("Computer Win!!")
-            print("rock beats scissor")
-            computer_score=computer_score+1  
+    elif user_choice=="scissor" and computer_choice=="rock":
+        print("User lose!!")
+        print("rock beats scissor")
+        computer_score+=1  
 
-        elif user_choice=="scissor" and computer_choice=="paper":
-            print("User Win!!")
-            print("scissor beats paper")
-            user_score=user_score+1  
-        else:
-            print("Its a tie!")
+    elif user_choice=="scissor" and computer_choice=="paper":
+        print("User Win!!")
+        print("scissor beats paper")
+        user_score+=1  
+    else:
+        print("Its a tie!")
 
-        print("Round:",round,"User score:",user_score,"Computer score:",computer_score,sep="\n")
-        round=round+1
-        print("If you want to play round",round,",then enter 'YES' other wise enter 'EXIT'")
-        permission=input()
-        if permission=="YES":
-            pass
-        else:
-            print("Final result:\nUser score:%d\nComputer score:%d"%(user_score,computer_score))
-            break
+    print("\nRound=",round,"\nUser's score=",user_score,"\nComputer's score=",computer_score) 
+    round+=1   
+    
+  
+def permission():
+    performe()
+    while True:
+        print("Wanna play round",round,"?\n'YES' or 'EXIT'")
+        x=input().strip().lower()
+        try:
+            if x=="yes":
+                performe()
+                pass
+            elif x=="exit":
+                print("\nFinal result:\nUser's Score=",user_score,"\nComputer's Score:",computer_score)
+                break
+            else:
+                print("Invalid Input!! Input must be 'YES' or 'Exit'")
+                continue
+        except:
+            print("Invalid Syntax!!.. Input must be string!")    
+permission()
 
             
 
