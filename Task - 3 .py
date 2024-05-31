@@ -8,6 +8,7 @@ Generate Password: Use a combination of random characters to
 generate a password of the specified length.
 Display the Password: Print the generated password on the screen'''
 
+
 import random 
 import string
 
@@ -18,15 +19,15 @@ def generate_password(length):
 
 def re_generate():
     while True:
-        re_enter=input(("If you want to re-generate the password enter 'Yes' otherwise 'Exit':\n")).strip().upper()
+        re_enter=input(("\nIf you want to re-generate the password enter 'Yes' otherwise 'Exit':\n")).strip().upper()
         if re_enter=="YES":
             userInput()
             break
         elif re_enter=="EXIT":
-            print("Your password generated successfully!!")
+            print("\nYour password generated successfully!!")
             break
         else:
-            print("Invalid input!! Please enter 'Yes' or 'Exit'")
+            print("\nInvalid input!! Please enter 'Yes' or 'Exit'")
 
 
 def userInput():
@@ -45,3 +46,10 @@ def userInput():
     re_generate()
 
 userInput()
+
+
+
+
+
+
+
