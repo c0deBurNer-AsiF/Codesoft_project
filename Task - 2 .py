@@ -2,17 +2,21 @@
 Prompt the user to input two numbers and an operation choice.
 Perform the calculation and display the result.'''
 
+'''Design a simple calculator with basic arithmetic operations.
+Prompt the user to input two numbers and an operation choice.
+Perform the calculation and display the result.'''
+
 import math
 def calculator():
     while True:
-        print("1.Additon\n2.Subtraction\n3.Multiplicatiion\n4.Division\n5.Raise_power\n6.Factorial\n7.Exit")
+        print("\n1.Additon\n2.Subtraction\n3.Multiplicatiion\n4.Division\n5.Raise_power\n6.Factorial\n7.Exit\n")
         try:
             user_input=int(input("Select required option:")) 
             if user_input==7:
                 print("Thank You for using!!")
                 break
             if user_input<1 or user_input>7:
-                print("Input out of range!!..Input should be (1-7)")
+                print("Input out of range!!..Input must be range of (1-7)")
                 continue
         except:
             print("Invalid input!!..")
@@ -20,7 +24,7 @@ def calculator():
 
         try:
             if user_input==6:
-                a=int(input("Enter a integer number"))
+                a=int(input("Enter a integer number:"))
                 if a<0:
                     print("Negative number not allow for calculatig factorial!!")
                     continue
@@ -52,10 +56,6 @@ def calculator():
             case 5:
                 print("%d 's power %d == %d"%(a,b,a**b))  
 calculator()                                             
-
-
-
-
 
 
 
